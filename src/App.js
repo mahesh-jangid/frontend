@@ -60,7 +60,7 @@ const App = () => {
                 <Route path="/admin/user/:id/edit" component={Edituser} />
                 <Route path="/admin/product/:id/edit" component={Editproduct} />
 
-                <Route exact path="*" component={NotFoundPage} />
+                <Route path="*" component={NotFoundPage} />
               </Switch>
               <Footer />
             </>
