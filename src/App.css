@@ -383,9 +383,7 @@ nav {
 .cardscg:nth-child(2) {
   background: url("https://i.imgur.com/roN4Tqt.jpg") no-repeat center top/cover;
 }
-.cardscg:nth-child(3) {
-  background: url("./img1.jpg") no-repeat center top/cover;
-}
+
 
 /* --- CgDiv ----*/
 
@@ -674,47 +672,8 @@ nav {
   .navLinks li {
     opacity: 0;
   }
-  .slide:first-child {
-    background: url("product2media.png") no-repeat center top/cover;
-  }
-  .slide:nth-child(2) {
-    /* position: absolute; */
-    background-position: right;
-  }
-  .slide:nth-child(3) {
-    /* position: absolute; */
-    background-position: bottom 10px right -100px;
-  }
-  .slide:nth-child(4) {
-    /* position: absolute; */
-    background-position: right;
-  }
-  .slide .titleslider {
-    left: 220px;
-  }
-  .slide.current .titleslider {
-    font-size: 26px;
-    transform: translateY(770px);
-  }
-  .slide:first-child .titleslider {
-    left: 220px;
-    font-size: 38px;
-  }
-
-  .slide.current .subtitleslider {
-    font-size: 20px;
-    left: 220px;
-    transform: translateY(830px);
-    top: -620px;
-  }
-  .slide:first-child .subtitleslider {
-    left: 220px;
-    top: -540px;
-  }
-  .slide.current .content {
-    transform: translateX(840px);
-    bottom: 200px;
-  }
+ 
+ 
   .logo {
     /* position: absolute; */
     width: 100%;
