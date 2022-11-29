@@ -1,10 +1,23 @@
 # Ecommerce-website with Admin dashboard
 
+- Demo Link :
+
 # Tech Stack
+
+- Frontend :-
 
 1. ReactJS
 2. Redux
 3. Chakra UI
-4. NodeJS
-5. ExpressJS
-6. MongoDB
+
+- Backend :-
+
+1. NodeJS
+2. ExpressJS
+3. MongoDB
+
+## Admin credentials
+
+### `Email: mahesh@gmail.com`
+
+### Password : 1234
