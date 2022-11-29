@@ -8,7 +8,3 @@
 4. NodeJS
 5. ExpressJS
 6. MongoDB
-
-# Admin credentials : email : mahesh@gmail.com
-
-                      password : 1234
