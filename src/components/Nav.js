@@ -151,8 +151,20 @@ const Nav = ({ history }) => {
           </div>
         ) : (
           <Link to="/login">
-            {" "}
-            <div
+            <Button
+              colorScheme="pink"
+              className="signin"
+              onMouseOver={() => setSignin(!signin)}
+              onMouseOut={() => setSignin(!signin)}
+            >
+              Sign in
+              {!signin ? (
+                <BsArrowRightShort size="25" />
+              ) : (
+                <MdKeyboardArrowRight size="25" />
+              )}
+            </Button>
+            {/* <div
               className="signin"
               onMouseOver={() => setSignin(!signin)}
               onMouseOut={() => setSignin(!signin)}
@@ -164,7 +176,7 @@ const Nav = ({ history }) => {
               ) : (
                 <MdKeyboardArrowRight size="25" />
               )}
-            </div>
+            </div> */}
           </Link>
         )}
         {userInfo && userInfo.isAdmin && (

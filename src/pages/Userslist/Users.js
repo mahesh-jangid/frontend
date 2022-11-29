@@ -15,6 +15,8 @@ import {
   Td,
   Stack,
   Box,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
 import { Helmet } from "react-helmet";
 
@@ -54,7 +56,10 @@ const Users = ({ history }) => {
           <RingLoader color="#ff000d" size={40} loading={loading} />
         </div>
       ) : error ? (
-        <h1>error occured</h1>
+        <Alert status="error">
+          <AlertIcon />
+          {error}
+        </Alert>
       ) : (
         <Box overflowX="auto">
           <Table className="tableusers" variant="striped">

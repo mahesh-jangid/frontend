@@ -5,6 +5,7 @@ import { CreateOrder } from "../../Redux/actions/orderActions";
 import { Helmet } from "react-helmet";
 
 import "./Placeorder.css";
+import { Alert, AlertIcon } from "@chakra-ui/react";
 const Placeorder = ({ history }) => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
@@ -44,7 +45,6 @@ const Placeorder = ({ history }) => {
       history.push(`/order/${order._id}`);
     }
     return () => {};
-    //eslint-disable-next-line
   }, [history, success]);
   return (
     <div className="placeorder">
@@ -107,7 +107,12 @@ const Placeorder = ({ history }) => {
               <button className="placeorder-btn" onClick={Placeorderhanlder}>
                 Place Order
               </button>
-              {error && error}
+              {error && (
+                <Alert status="error">
+                  <AlertIcon />
+                  {error}
+                </Alert>
+              )}
             </div>
           </div>
         </div>

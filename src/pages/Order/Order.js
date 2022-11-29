@@ -18,6 +18,7 @@ import {
   ORDER_DELIVER_RESET,
 } from "../../Redux/constants/orderConstants";
 import { Button } from "@chakra-ui/button";
+import { Alert, AlertIcon } from "@chakra-ui/react";
 const Order = ({ match, history }) => {
   const [sdkReady, setsdkReady] = useState(false);
   const orderId = match.params.id;
@@ -44,7 +45,9 @@ const Order = ({ match, history }) => {
       history.push("/login");
     }
     const addPaypalscript = async () => {
-      const { data: clientId } = await axios.get("/api/config/paypal ");
+      const { data: clientId } = await axios.get(
+        `${process.env.REACT_APP_HOME_URL}/api/config/paypal`
+      );
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.async = true;
@@ -85,7 +88,10 @@ const Order = ({ match, history }) => {
       />
     </div>
   ) : error ? (
-    <h1>{error}</h1>
+    <Alert status="error">
+      <AlertIcon />
+      {error}
+    </Alert>
   ) : (
     <div className="placeorder">
       <Helmet>

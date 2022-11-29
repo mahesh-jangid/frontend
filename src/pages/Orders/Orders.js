@@ -15,6 +15,8 @@ import {
   Td,
   Stack,
   Box,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { AiFillDelete, AiOutlineEdit } from "react-icons/ai";
@@ -45,7 +47,10 @@ const Orders = ({ history }) => {
           <RingLoader color="#ff000d" size={40} loading={loading} />
         </div>
       ) : error ? (
-        <h1>error</h1>
+        <Alert status="error">
+          <AlertIcon />
+          {error}
+        </Alert>
       ) : (
         <Box overflowX="auto">
           <Table className="tableusers" variant="striped">

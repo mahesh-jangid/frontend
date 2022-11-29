@@ -9,7 +9,7 @@ import addUs from "./img/new.svg";
 import wave from "./img/wavev.png";
 import { register } from "../Redux/actions/userActions";
 
-import { Button, Input } from "@chakra-ui/react";
+import { Alert, AlertIcon, Button, Input, Spinner } from "@chakra-ui/react";
 
 const RegisterScreen = ({ location, history }) => {
   const [name, setName] = useState("");
@@ -22,7 +22,7 @@ const RegisterScreen = ({ location, history }) => {
 
   const userRegister = useSelector((state) => state.userRegister);
 
-  const { error, userInfo } = userRegister;
+  const { loading, error, userInfo } = userRegister;
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
@@ -74,7 +74,12 @@ const RegisterScreen = ({ location, history }) => {
         <div className="login-content">
           <form onSubmit={submitHandler}>
             <Image src={avatarRegister} />
-            {error && <h4>{error}</h4>}
+            {error && (
+              <Alert status="error">
+                <AlertIcon />
+                {error}
+              </Alert>
+            )}
             <div className="input-div zz">
               <div className="i">
                 <i className="fas fa-user"></i>
@@ -131,8 +136,15 @@ const RegisterScreen = ({ location, history }) => {
                 />
               </div>
             </div>
-            {message && <h4>{message}</h4>}
-            <input type="submit" className="btna2" value="Sign up" />
+            {message && (
+              <Alert status="error" mb={4}>
+                <AlertIcon />
+                {message}
+              </Alert>
+            )}
+            <Button type="submit" colorScheme="pink" size="lg" fontSize="md">
+              {loading ? <Spinner color="white.500" /> : "Sign Up"}
+            </Button>
             <br />
             Have an Account?{" "}
             <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>

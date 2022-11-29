@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
+import { Alert, AlertIcon, Button, Spinner } from "@chakra-ui/react";
 import { Form, Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { BsArrowRight } from "react-icons/bs";
-import avatar from "./img/avatare.svg";
 import login from "../../Redux/actions/userActions";
 import login_svg from "./img/login.svg";
 import wave from "./img/wavev.png";
@@ -19,7 +18,7 @@ const LoginScreen = ({ location, history }) => {
 
   const userLogin = useSelector((state) => state.userLogin);
 
-  const { error, userInfo } = userLogin;
+  const { loading, error, userInfo } = userLogin;
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
@@ -67,7 +66,12 @@ const LoginScreen = ({ location, history }) => {
         <div className="login-content">
           <form onSubmit={submitHandler}>
             <h1>Member Login</h1>
-            {error && <h4>{error}</h4>}
+            {error && (
+              <Alert status="error">
+                <AlertIcon />
+                {error}
+              </Alert>
+            )}
             <div className="input-div one">
               <div className="i">
                 <i class="fas fa-envelope"></i>
@@ -96,8 +100,9 @@ const LoginScreen = ({ location, history }) => {
                 />
               </div>
             </div>
-
-            <input type="submit" className="btna" value="Login" />
+            <Button type="submit" colorScheme="pink" size="lg" fontSize="md">
+              {loading ? <Spinner color="white.500" /> : "Login"}
+            </Button>
 
             <div className="div-forgot">
               <span>Forgot </span>

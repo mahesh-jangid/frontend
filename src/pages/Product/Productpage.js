@@ -21,6 +21,8 @@ import {
   FormControl,
   FormLabel,
   Textarea,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
 import RingLoader from "react-spinners/RingLoader";
 import {
@@ -97,7 +99,10 @@ const Productpage = ({ history, match }) => {
             <RingLoader color="#ff000d" size={40} loading={loading} />
           </div>
         ) : error ? (
-          <h2>{error} </h2>
+          <Alert status="error">
+            <AlertIcon />
+            {error}
+          </Alert>
         ) : (
           <div className="card-wrapper">
             <div className="card">
@@ -263,7 +268,7 @@ const Productpage = ({ history, match }) => {
         )}
         <div className="REVIEWS">
           <h1>Reviews :</h1>
-          {product.reviews.length === 0 && <h2>NO REVIEWS</h2>}
+          {product.reviews.length === 0 && <h2>Ooops.. NO REVIEWS</h2>}
           <div>
             {product.reviews.map((review) => (
               <div className="review">
@@ -279,7 +284,13 @@ const Productpage = ({ history, match }) => {
             ))}
             <div className="createreview">
               <h1>Create New Review :</h1>
-              {errorProductReview && <h2>{errorProductReview}</h2>}
+              {errorProductReview && (
+                <Alert status="error">
+                  <AlertIcon />
+                  {error}
+                </Alert>
+              )}
+
               {userInfo ? (
                 <FormControl>
                   <FormLabel>Rating :</FormLabel>
